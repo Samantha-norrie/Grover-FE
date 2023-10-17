@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { numQubitSlice } from './components/slices/NumQubitsSlice'
-import { numSolutionsSlice } from './components/slices/NumSolutionsSlice'
-import { qubitsListSlice } from './components/slices/QubitsListSlice'
+import { numQubitSlice } from './slices/NumQubitsSlice'
+import { numSolutionsSlice } from './slices/NumSolutionsSlice'
+import { qubitsListSlice } from './slices/QubitsListSlice'
 
 export default configureStore({
   reducer: {

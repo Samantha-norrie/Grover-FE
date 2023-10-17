@@ -1,13 +1,14 @@
 import React from "react";
 import HadamardGate from "./HadamardGate";
+import { useSelector} from 'react-redux';
 
-function HadamardColumn({qubitList}) {
-
+function HadamardColumn() {
+    // const 
 
     return(
         <div className="Hadamard-column">
             {
-                qubitList.map((item, index) => (
+                useSelector((state) => state.qubitsList.value).map((item, index) => (
                     <HadamardGate key={index}/>
                   ))
             }

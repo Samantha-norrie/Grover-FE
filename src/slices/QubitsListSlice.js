@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const qubitsListSlice = createSlice({
     name: 'qubitsList',
     initialState: {
-      value: [0,1],
+      value: [0, 1, 2, 3],
     },
     reducers: {
       updateQubitsList: (state, action) => {

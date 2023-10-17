@@ -1,13 +1,13 @@
 import React from "react";
 import HadamardColumn from "./HadamardColumn";
+import IteratorContainer from "./IteratorContainer";
 
-function CircuitRow(props) {
+function CircuitRow() {
     
     return(
-        <div>
-            <HadamardColumn
-                qubitList={[0,1,2,3,4]}
-            />
+        <div className="Circuit-row">
+            <HadamardColumn/>
+            <IteratorContainer/>
         </div>
     );
 };

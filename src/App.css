@@ -40,7 +40,7 @@
 .Input-container {
   display: flex;
   justify-content: space-around;
-  margin-top: 2rem;
+  margin: 2rem 0rem;
 }
 
 .Hadamard-gate{
@@ -52,6 +52,31 @@
 }
 
 .Hadamard-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.Circuit-row {
+  display: flex;
+}
+
+.Iterator{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.Oracle {
+  background-color: darkolivegreen;
+}
+
+.Diffuser {
+  background-color: black;
+  color: white;
+}
+
+.Page-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;

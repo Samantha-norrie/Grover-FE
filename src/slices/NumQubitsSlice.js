@@ -8,6 +8,7 @@ export const numQubitSlice = createSlice({
   reducers: {
     updateNumQubits: (state, action) => {
       state.value = action.payload
+
     }
   },
 })
