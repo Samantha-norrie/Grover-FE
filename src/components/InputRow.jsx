@@ -7,16 +7,33 @@ import { updateNumQubits } from "../slices/NumQubitsSlice";
 import { updateNumIterations } from "../slices/NumIterationsSlice";
 import { updateNumSolutions } from "../slices/NumSolutionsSlice";
 import { updateQubitsList } from "../slices/QubitsListSlice";
+import { updateGroverData } from "../slices/GroverDataSlice";
+import { processGroverData } from "./Utils";
 
 function InputRow() {
     const dispatch = useDispatch();
+    var numQubits = useSelector((state) => state.numQubits.value);
+    var numIterations = useSelector((state) => state.numIterations.value);
+    var numSolutions = useSelector((state) => state.numSolutions.value);
 
     const onNumQubitsChange = (newVal) => {
         console.log(newVal);
         dispatch(updateNumQubits(newVal));
         dispatch(updateQubitsList([...Array(newVal).keys()]));
         console.log([...Array(newVal).keys()]);
+        getGroverInfo();
     }
+
+    const getGroverInfo = async () => {
+
+        fetch("http://127.0.0.1:8001/get_grover_data").then((res) =>
+            res.json().then((data) => {
+
+                dispatch(updateGroverData(data.grover_data));
+                console.log("data", data);
+            })
+        );
+    };
 
 
     return (

@@ -1,11 +1,11 @@
 import React from "react";
 import Iterator from "./Iterator";
 
-function IteratorContainer() {
+function IteratorContainer(props) {
 
     return (
         <div>
-            <Iterator/>
+            <Iterator oracle_id={props.oracle_id} diffuser_id={props.diffuser_id}/>
         </div>
     );
 }

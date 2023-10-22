@@ -2,12 +2,12 @@ import React from "react";
 import Oracle from "./Oracle";
 import Diffuser from "./Diffuser";
 
-function Iterator() {
+function Iterator(props) {
 
     return (
         <div className="Iterator">
-            <Oracle/>
-            <Diffuser/>
+            <Oracle id={props.oracle_id}/>
+            <Diffuser id={props.diffuser_id}/>
         </div>
     );
 }

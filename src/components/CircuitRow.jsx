@@ -6,8 +6,8 @@ function CircuitRow() {
     
     return(
         <div className="Circuit-row">
-            <HadamardColumn/>
-            <IteratorContainer/>
+            <HadamardColumn id={0}/>
+            <IteratorContainer oracle_id={1} diffuser_id={2}/>
         </div>
     );
 };
