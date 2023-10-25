@@ -8,7 +8,6 @@ import { updateNumIterations } from "../slices/NumIterationsSlice";
 import { updateNumSolutions } from "../slices/NumSolutionsSlice";
 import { updateQubitsList } from "../slices/QubitsListSlice";
 import { updateGroverData } from "../slices/GroverDataSlice";
-import { processGroverData } from "./Utils";
 
 function InputRow() {
     const dispatch = useDispatch();

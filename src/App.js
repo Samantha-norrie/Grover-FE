@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import PageContainer from './components/PageContainer';
 import { Provider } from 'react-redux'
