@@ -2,6 +2,11 @@
   height: 100%;
 }
 
+html, body, #app, #app>div, #root {
+  height: 100%;
+  background-color: #282c34;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,12 +28,31 @@
   margin: 2rem 0rem;
 }
 
+.Button {
+  width: 10rem;
+  margin: 1rem;
+}
+
+.Button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.Vert-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .Hadamard-gate{
   width: 2rem;
   height: 2rem;
   background-color: #61dafb;
   text-align: center;
   margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 2px 2px;
 }
 
 .Hadamard-column{
@@ -48,16 +72,32 @@
 }
 
 .Oracle {
-  background-color: darkolivegreen;
+  background-color: darkolivegreen;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 2px 10px;
 }
 
 .Diffuser {
   background-color: black;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px 2px;
 }
 
 .Page-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  height: 100%;
+}
+
+.Loading-container {
+  display: flex;
+  justify-content: center;
 }

@@ -12,12 +12,29 @@ function GraphRow(props) {
     return (
         <div>
             {data.length !== 0?
-                <XYPlot height={200} width={600} yDomain={[0, 1.0]}>
+                <XYPlot 
+                    animation 
+                    height={200} 
+                    width={900} 
+                    yDomain={[-1.0, 1.0]}
+                >
+                    <XAxis title="Values" style={{
+                        line: {stroke: '#ADDDE1'},
+                        ticks: {stroke: '#ADDDE1'},
+                        text: {stroke: 'none', fill: '#6b6b76', fontWeight: 600}
+                        }}
+                    />
+                    <YAxis title="Amplitudes" style={{
+                        line: {stroke: '#ADDDE1'},
+                        ticks: {stroke: '#ADDDE1'},
+                        text: {stroke: 'none', fill: '#6b6b76', fontWeight: 600}
+                        }}
+                    />
                     <VerticalBarSeries data={data.length !== 0? data[currentStep]: data} />
-                    <XAxis title="Values" />
-                    <YAxis title="Amplitudes" />
                 </XYPlot>:
-                <BallTriangle stroke="#000000"/>
+                <div className="Loading-container">
+                    <BallTriangle stroke="#FFFFFF"/>
+                </div>
             }
         </div>
     );
