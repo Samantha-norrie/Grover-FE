@@ -3,6 +3,7 @@ import HadamardColumn from "./HadamardColumn";
 import IteratorContainer from "./IteratorContainer";
 import { useSelector } from "react-redux";
 import {Bars} from "react-loading-icons";
+import InitQubitColumn from "./InitQubitColumn";
 
 function CircuitRow() {
     
@@ -13,8 +14,10 @@ function CircuitRow() {
                     <Bars/>
                 </div>:
                 <div className="Circuit-row">
-                    <HadamardColumn id={0}/>
-                    <IteratorContainer oracle_id={1} diffuser_id={2}/>
+                    <InitQubitColumn id={0}/>
+                    <HadamardColumn id={1}/>
+                    <IteratorContainer oracle_id={2} diffuser_id={3}/>
+                    <IteratorContainer oracle_id={4} diffuser_id={5}/>
                 </div>
             }
         </div>

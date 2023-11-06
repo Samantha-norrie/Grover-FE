@@ -11,6 +11,7 @@ import { updateGroverData } from "../slices/GroverDataSlice";
 import axios from "axios";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { updateSelectedQubits } from "../slices/SelectedQubitsSlice";
 axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
 
 const darkTheme = createTheme({
@@ -74,6 +75,7 @@ function InputRow() {
           })
           .then(function (response) {
             dispatch(updateGroverData(response.data.grover_data));
+            dispatch(updateSelectedQubits(response.data.solutions));
             console.log(response.data.grover_data);
           })
           .catch(function (error) {

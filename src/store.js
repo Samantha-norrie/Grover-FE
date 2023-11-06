@@ -4,6 +4,7 @@ import { numSolutionsSlice } from './slices/NumSolutionsSlice'
 import { qubitsListSlice } from './slices/QubitsListSlice'
 import { groverDataSlice } from './slices/GroverDataSlice'
 import { currentStepSlice } from './slices/CurrentStepSlice'
+import { selectedQubitsSlice } from './slices/SelectedQubitsSlice'
 
 export default configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export default configureStore({
     numSolutions: numSolutionsSlice.reducer,
     qubitsList: qubitsListSlice.reducer,
     groverData: groverDataSlice.reducer,
-    currentStep: currentStepSlice.reducer
+    currentStep: currentStepSlice.reducer,
+    selectedQubits: selectedQubitsSlice.reducer
   },
 })

@@ -59,6 +59,28 @@ html, body, #app, #app>div, #root {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  border-radius: 2px 2px;;
+}
+.Hadamard-column:hover, .Oracle:hover, .Diffuser:hover {
+  opacity: 0.5;
+}
+
+
+.Graph-row {
+  margin-left: 0.5rem;
+}
+
+.Qubit {
+  background-color: lightcoral;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 2px 2px;
 }
 
 .Circuit-row {
@@ -90,11 +112,31 @@ html, body, #app, #app>div, #root {
   border-radius: 10px 2px;
 }
 
-.Page-container {
+.Iterator-container {
+  margin-right: 0.5rem;
+}
+
+.Solutions-qubits-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.Info-button-container {
+  display: flex;
+  justify-content: right;
+}
+
+.Grover-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
+  padding-bottom: 2rem;
+}
+
+.Page-container {
+  height: 100%;
+  margin-bottom: 2rem;
 }
 
 .Loading-container {

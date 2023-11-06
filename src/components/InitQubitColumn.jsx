@@ -1,9 +1,10 @@
 import React from "react";
-import HadamardGate from "./HadamardGate";
 import { useSelector, useDispatch} from 'react-redux';
 import { updateCurrentStep } from "../slices/CurrentStepSlice";
+import Qubit from "./Qubit";
 
-function HadamardColumn(props) {
+//TODO Necessary? Very similar to HadamardColumn
+function InitQubitColumn(props) {
     const dispatch = useDispatch();
 
     return(
@@ -12,11 +13,11 @@ function HadamardColumn(props) {
         }}>
             {
                 useSelector((state) => state.qubitsList.value).map((item, index) => (
-                    <HadamardGate key={index}/>
+                    <Qubit key={item}/>
                   ))
             }
         </div>
     );
 };
 
-export default HadamardColumn;
+export default InitQubitColumn;

@@ -4,7 +4,7 @@ import Iterator from "./Iterator";
 function IteratorContainer(props) {
 
     return (
-        <div>
+        <div className="Iterator-container">
             <Iterator oracle_id={props.oracle_id} diffuser_id={props.diffuser_id}/>
         </div>
     );
