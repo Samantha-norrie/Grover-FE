@@ -3,13 +3,10 @@ import InputRow from "./InputRow";
 import GraphRow from "./GraphRow";
 import CircuitRow from "./CircuitRow";
 import PropTypes from 'prop-types';
-import Backdrop from '@mui/material/Backdrop';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import "../App.css";
 import { useSpring, animated } from '@react-spring/web';
+import InstructionsModal from "./InstructionsModal";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
@@ -62,7 +59,7 @@ Fade.propTypes = {
     p: 4,
   };
 function PageContainer() {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -71,25 +68,11 @@ function PageContainer() {
             <div className="Info-button-container">
                 <Button onClick={handleOpen}>Help!</Button>
             </div>
-            <Modal
-                aria-labelledby="spring-modal-title"
-                aria-describedby="spring-modal-description"
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                slots={{ backdrop: Backdrop }}
-                slotProps={{
-                backdrop: {
-                    TransitionComponent: Fade,
-                },
-                }}
-            >
-                <Fade in={open}>
-                <Box sx={style}>
-                    <p>!!!</p>
-                </Box>
-                </Fade>
-            </Modal>
+            <InstructionsModal
+              open={open}
+              handleOpen={handleOpen}
+              handleClose={handleClose}
+            />
             <div className="Grover-container">
                 <InputRow/>
                 <CircuitRow/>
