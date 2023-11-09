@@ -112,7 +112,7 @@ function InstructionsModal(props) {
                 <div>
                     <Slider
                         aria-label="Temperature"
-                        defaultValue={instructionStep}
+                        value={instructionStep}
                         valueLabelDisplay="auto"
                         onChange={(_, val)=> {setInstructionStep(val)}}
                         step={1}

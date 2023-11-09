@@ -43,7 +43,7 @@ function InputRow() {
 
     const onNumSolutionsChange = (newVal) => {
 
-        if (newVal < 1 || newVal >= numSolutions) {
+        if (newVal < 1 || newVal >= Math.pow(2, numQubits)) {
             setNumSolutionsError(true);
         } else {
             setNumSolutionsError(false);
@@ -95,7 +95,7 @@ function InputRow() {
                     label="Number of Qubits"
                     helperText={numQubitsError? `Please enter a value between 1 and ?`: ""}
                     defaultValue={useSelector((state) => state.numQubits.value)}
-                    onBlur={(e) => {
+                    onChange={(e) => {
                         onNumQubitsChange(parseInt(e.target.value));
                     }}
                 />
@@ -108,7 +108,7 @@ function InputRow() {
                         helperText={numIterationsError? `Please enter a value between 1 and ?`: ""}
                         disabled={useIdealIterations}
                         defaultValue={useSelector((state) => state.numIterations.value)}
-                        onBlur={(e) => {
+                        onChange={(e) => {
                             onNumIterationsChange(parseInt(e.target.value));
                         }}
                     />  
@@ -125,7 +125,7 @@ function InputRow() {
                     label="Number of Solutions"
                     helperText={numSolutionsError? `Please enter a value between 1 and ${Math.pow(2,numQubits)}`: ""}
                     defaultValue={useSelector((state) => state.numSolutions.value)}
-                    onBlur={(e) => {
+                    onChange={(e) => {
                         onNumSolutionsChange(parseInt(e.target.value));
                     }}
                 />
