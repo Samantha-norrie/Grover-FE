@@ -116,9 +116,16 @@ html, body, #app, #app>div, #root {
   margin-right: 0.5rem;
 }
 
-.Solutions-qubits-row {
+.Solutions-values-row {
   display: flex;
   flex-direction: row;
+  background-color: cornflowerblue;
+  color:aliceblue;
+  margin-left: 0.5rem;
+  max-width: 5rem;
+}
+.solution-value {
+  margin: 0.5rem;
 }
 
 .Info-button-container {

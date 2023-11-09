@@ -13,7 +13,7 @@ function InitQubitColumn(props) {
         }}>
             {
                 useSelector((state) => state.qubitsList.value).map((item, index) => (
-                    <Qubit key={item}/>
+                    <Qubit q={item}/>
                   ))
             }
         </div>

@@ -11,7 +11,7 @@ import { updateGroverData } from "../slices/GroverDataSlice";
 import axios from "axios";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { updateSelectedQubits } from "../slices/SelectedQubitsSlice";
+import { updateSelectedValues } from "../slices/SelectedValuesSlice";
 axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
 
 const darkTheme = createTheme({
@@ -31,7 +31,7 @@ function InputRow() {
     const numSolutions = useSelector((state) => state.numSolutions.value);
 
     const onNumQubitsChange = (newVal) => {
-        console.log(newVal);
+
         if (newVal < 1 || newVal > 30) {
             setNumQubitsError(true);
         } else {
@@ -42,7 +42,7 @@ function InputRow() {
     }
 
     const onNumSolutionsChange = (newVal) => {
-        console.log(newVal);
+
         if (newVal < 1 || newVal >= numSolutions) {
             setNumSolutionsError(true);
         } else {
@@ -52,7 +52,7 @@ function InputRow() {
     }
 
     const onNumIterationsChange = (newVal) => {
-        console.log(newVal);
+
         if (newVal < 1) {
             setNumiterationsError(true);
         } else {
@@ -75,7 +75,7 @@ function InputRow() {
           })
           .then(function (response) {
             dispatch(updateGroverData(response.data.grover_data));
-            dispatch(updateSelectedQubits(response.data.solutions));
+            dispatch(updateSelectedValues(response.data.solutions));
             console.log(response.data.grover_data);
           })
           .catch(function (error) {
@@ -93,7 +93,7 @@ function InputRow() {
                     error={numQubitsError}
                     type="number"
                     label="Number of Qubits"
-                    helperText={numQubitsError? "!!": ""}
+                    helperText={numQubitsError? `Please enter a value between 1 and ?`: ""}
                     defaultValue={useSelector((state) => state.numQubits.value)}
                     onBlur={(e) => {
                         onNumQubitsChange(parseInt(e.target.value));
@@ -105,7 +105,7 @@ function InputRow() {
                         error={numIterationsError}
                         type="number"
                         label="Number of Iterations"
-                        helperText={numIterationsError? "!!": ""}
+                        helperText={numIterationsError? `Please enter a value between 1 and ?`: ""}
                         disabled={useIdealIterations}
                         defaultValue={useSelector((state) => state.numIterations.value)}
                         onBlur={(e) => {
@@ -115,7 +115,7 @@ function InputRow() {
                     <FormControlLabel 
                         control={<Checkbox  />} 
                         label="Use ideal iterations" 
-                        onChange={onCheckChange}    
+                        onChange={() =>onCheckChange()}    
                     />
                 </div>
                 <TextField
@@ -123,7 +123,7 @@ function InputRow() {
                     error={numSolutionsError}
                     type="number"
                     label="Number of Solutions"
-                    helperText={numSolutionsError? "!!": ""}
+                    helperText={numSolutionsError? `Please enter a value between 1 and ${Math.pow(2,numQubits)}`: ""}
                     defaultValue={useSelector((state) => state.numSolutions.value)}
                     onBlur={(e) => {
                         onNumSolutionsChange(parseInt(e.target.value));
@@ -134,7 +134,7 @@ function InputRow() {
             <div className="Button-container">
                 <Button 
                     className="Button"
-                    onClick={getGroverInfo()} 
+                    onClick={() => getGroverInfo()} 
                     variant="contained"
                     disabled={numQubitsError || numIterationsError || numSolutionsError}
                 >

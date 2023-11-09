@@ -34,7 +34,7 @@ const Fade = React.forwardRef(function Fade(props, ref) {
     });
     return (
         <animated.div ref={ref} style={style} {...other}>
-          {React.cloneElement(children, { onClick })}
+          {React.cloneElement(children, {onClick })}
         </animated.div>
       );
 });
