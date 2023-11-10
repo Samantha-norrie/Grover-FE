@@ -4,9 +4,10 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Slider from '@mui/material/Slider';
+import { Button } from "@mui/material";
 import "../App.css";
 import { useSpring, animated } from '@react-spring/web';
-import { HOW_DOES_GROVER_WORK, STEP_ONE_TEXT, STEP_THREE_TEXT, STEP_TWO_TEXT, WELCOME_TEXT, WHAT_IS_GROVER } from "../Utils";
+import { HOW_DOES_GROVER_WORK, HOW_TO_USE_QGROVER, STEP_ONE_TEXT, STEP_THREE_TEXT, STEP_TWO_TEXT, WELCOME_TEXT, WHAT_IS_GROVER } from "../Utils";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
@@ -106,6 +107,17 @@ function InstructionsModal(props) {
                             <h3>{HOW_DOES_GROVER_WORK}</h3>
                             {/* <img src="../public.ball_trinket"/> */}
                             {STEP_THREE_TEXT}
+                        </div>
+                    }
+                    {instructionStep === 4 &&
+                        <div>
+                            {HOW_TO_USE_QGROVER}
+                            {/* <img src="../public.ball_trinket"/> */}
+                            {STEP_THREE_TEXT}
+                            <div>
+                            
+                              <Button variant="contained" onClick={handleClose}>Let's get started!</Button>
+                            </div>
                         </div>
                     }
                 </div>

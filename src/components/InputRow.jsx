@@ -31,10 +31,11 @@ function InputRow() {
     const numSolutions = useSelector((state) => state.numSolutions.value);
 
     const onNumQubitsChange = (newVal) => {
-
-        if (newVal < 1 || newVal > 30) {
+        console.log("new val", newVal);
+        if (newVal < 1 || newVal > 30 || !Number.isInteger(newVal)) {
             setNumQubitsError(true);
-        } else {
+        } else if (!isNaN(newVal)) {
+            console.log("in here");
             setNumQubitsError(false);
             dispatch(updateNumQubits(newVal));
             dispatch(updateQubitsList([...Array(newVal).keys()]));
@@ -43,9 +44,9 @@ function InputRow() {
 
     const onNumSolutionsChange = (newVal) => {
 
-        if (newVal < 1 || newVal >= Math.pow(2, numQubits)) {
+        if (newVal < 1 || newVal >= Math.pow(2, numQubits) || !Number.isInteger(newVal)) {
             setNumSolutionsError(true);
-        } else {
+        } else if (!isNaN(newVal)) {
             setNumSolutionsError(false);
             dispatch(updateNumSolutions(newVal));
         }
@@ -53,9 +54,9 @@ function InputRow() {
 
     const onNumIterationsChange = (newVal) => {
 
-        if (newVal < 1) {
+        if (newVal < 1 || !Number.isInteger(newVal)) {
             setNumiterationsError(true);
-        } else {
+        } else if (!isNaN(newVal)) {
             setNumiterationsError(false);
             dispatch(updateNumIterations(newVal));
         }

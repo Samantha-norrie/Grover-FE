@@ -9,3 +9,6 @@ root(n) trinkets need to be checked before you will find your ball.";
 export const HOW_DOES_GROVER_WORK = "How does Grover's algorithm work?"
 export const STEP_THREE_TEXT = <p>Grover's algorithm is an <a href="">Amplitude Amplification algorithm</a>. It works by using an iterator on qubits that are in superposition.\
 The iterator is made up of two parts: an oracle and a diffuser.</p>
+
+export const HOW_TO_USE_QGROVER = <h3>How do I use QGrover?</h3>;
+
