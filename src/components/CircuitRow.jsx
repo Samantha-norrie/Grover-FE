@@ -6,6 +6,8 @@ import {Bars} from "react-loading-icons";
 import InitQubitColumn from "./InitQubitColumn";
 
 function CircuitRow() {
+
+    const num_iterations = useSelector((state) => state.numIterations.value);
     
     return(
         <div>
@@ -14,10 +16,21 @@ function CircuitRow() {
                     <Bars/>
                 </div>:
                 <div className="Circuit-row">
-                    <InitQubitColumn id={0}/>
-                    <HadamardColumn id={1}/>
-                    <IteratorContainer oracle_id={2} diffuser_id={3}/>
-                    <IteratorContainer oracle_id={4} diffuser_id={5}/>
+                    {[...Array(2*num_iterations+2).keys()].map((item, index) => (
+                        <div>
+                            {index === 0 &&
+                                <InitQubitColumn id={index}/>
+                            }
+                            {index === 1 &&
+                                <HadamardColumn id={index}/>
+                            }
+                            {index !== 0 && index !== 1 && index%2 === 0 &&
+                                <IteratorContainer oracle_id={index} diffuser_id={index+1}/>
+                            }            
+                        </div>
+                  ))
+
+                    }
                 </div>
             }
         </div>

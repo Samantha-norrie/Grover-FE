@@ -31,11 +31,11 @@ function InputRow() {
     const numSolutions = useSelector((state) => state.numSolutions.value);
 
     const onNumQubitsChange = (newVal) => {
-        console.log("new val", newVal);
+
         if (newVal < 1 || newVal > 30 || !Number.isInteger(newVal)) {
             setNumQubitsError(true);
         } else if (!isNaN(newVal)) {
-            console.log("in here");
+
             setNumQubitsError(false);
             dispatch(updateNumQubits(newVal));
             dispatch(updateQubitsList([...Array(newVal).keys()]));
@@ -67,7 +67,7 @@ function InputRow() {
     }
 
     const getGroverInfo = async () => {
-        console.log("num qubits", numQubits);
+
         dispatch(updateGroverData([]));
         axios.post("http://127.0.0.1:8001/get_grover_data", {
             num_qubits: numQubits,
@@ -77,7 +77,6 @@ function InputRow() {
           .then(function (response) {
             dispatch(updateGroverData(response.data.grover_data));
             dispatch(updateSelectedValues(response.data.solutions));
-            console.log(response.data.grover_data);
           })
           .catch(function (error) {
             console.log(error);
