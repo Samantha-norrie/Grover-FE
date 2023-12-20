@@ -12,3 +12,16 @@ The iterator is made up of two parts: an oracle and a diffuser.</p>
 
 export const HOW_TO_USE_QGROVER = <h3>How do I use QGrover?</h3>;
 
+export function generateRandomValues(numValues, upperLimit) {
+    let randomValues = [];
+    let i = 0;
+    while (i < numValues) {
+        let randomValue = Math.random()*upperLimit;
+        if (!randomValues.includes(randomValue)) {
+            randomValues.push(randomValue);
+            i++;
+        }
+    }
+
+    return randomValues;
+}
