@@ -17,7 +17,7 @@ function CircuitRow() {
                 </div>:
                 <div className="Circuit-row">
                     {[...Array(2*num_iterations+2).keys()].map((item, index) => (
-                        <div>
+                        <div className="Iterator-container">
                             {index === 0 &&
                                 <InitQubitColumn id={index}/>
                             }
