@@ -103,6 +103,12 @@ html, body, #app, #app>div, #root {
   height: 100%;
 }
 
+.step-4-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .Level-slider{
   width: 5rem;
 }
