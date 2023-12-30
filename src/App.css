@@ -71,7 +71,7 @@ html, body, #app, #app>div, #root {
 }
 
 .Qubit {
-  background-color: lightcoral;
+  background-color: #82c2ff;
   color: white;
   width: 2rem;
   height: 2rem;
@@ -94,7 +94,7 @@ html, body, #app, #app>div, #root {
 }
 
 .Oracle {
-  background-color: darkolivegreen;  
+  background-color: #63a7ff;  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -114,7 +114,7 @@ html, body, #app, #app>div, #root {
 }
 
 .Diffuser {
-  background-color: black;
+  background-color: #458CFF;
   color: white;
   display: flex;
   flex-direction: column;
