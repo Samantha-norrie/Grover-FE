@@ -12,6 +12,7 @@ import { updateSelectedValues } from "../slices/SelectedValuesSlice";
 import Slider from '@mui/material/Slider';
 import MultipleSelectChip from "./MultipleSelectChip";
 import { generateRandomValues } from "../Utils";
+import { makeStyles } from "@material-ui/core";
 axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
 
 const darkTheme = createTheme({
@@ -20,8 +21,30 @@ const darkTheme = createTheme({
   },
 });
 
+const useStyles = makeStyles({
+    "@keyframes flicker": {
+      from: {
+        opacity: 1
+      },
+      to: {
+        opacity: 0.7
+      }
+    },
+    flicker: {
+      animationName: "$flicker",
+      animationDuration: "1000ms",
+      animationIterationCount: "infinite",
+      animationDirection: "alternate",
+      animationTimingFunction: "ease-in-out"
+    },
+    withAnimation: () => ({
+      animationPlayState: "running"
+    })
+  });
+
 function InputRow() {
     const dispatch = useDispatch();
+    const {flicker, withAnimation} = useStyles();
 
     const numQubits = useSelector((state) => state.numQubits.value);
     const numIterations = useSelector((state) => state.numIterations.value);
@@ -38,10 +61,13 @@ function InputRow() {
 
     const [groverLevel, setGroverLevel] = useState(1);
 
+    const [disableAnimation, setDisableAnimation] = useState(true);
+
     const [solutionValue, setSolutionValue] = React.useState([]);
 
     const onCheckChange = () => {
         setUseIdealIterations(!useIdealIterations);
+        setDisableAnimation(false);
     }
 
 
@@ -62,6 +88,7 @@ function InputRow() {
             dispatch(updateGroverData(response.data.grover_data));
             dispatch(updateSelectedValues(response.data.solutions));
             dispatch(updateQubitsList([...Array(newNumQubits).keys()]));
+            setDisableAnimation(false);
           })
           .catch(function (error) {
             console.log(error);
@@ -98,6 +125,7 @@ function InputRow() {
                         if (e.target.value < 1) {
                             setNumQubitsError(true);
                         } else {
+                            setDisableAnimation(true);
                             setNumQubitsError(false);
                             setNewNumQubits(parseInt(e.target.value));
                         }
@@ -116,8 +144,9 @@ function InputRow() {
                             if (e.target.value < 1) {
                                 setNumIterationsError(true);
                             } else {
+                                setDisableAnimation(false);
                                 setNumIterationsError(false);
-                            setNewNumIterations(parseInt(e.target.value));
+                                setNewNumIterations(parseInt(e.target.value));
                         }}}
                     /> 
                     <FormControlLabel 
@@ -139,8 +168,9 @@ function InputRow() {
                             if (e.target.value < 1 || e.target.value > Math.pow(2,numQubits)) {
                                 setNumSolutionsError(true);
                             } else {
+                                setDisableAnimation(false);
                                 setNumSolutionsError(false); 
-                            setNewNumSolutions(parseInt(e.target.value));
+                                setNewNumSolutions(parseInt(e.target.value));
                         }}}
                     />:
                     <MultipleSelectChip 
@@ -154,13 +184,14 @@ function InputRow() {
             </ThemeProvider>
             </div>
             <div className="Button-container">
-                <Button 
-                    className="Button"
-                    onClick={() => getGroverInfo()} 
-                    variant="contained"
-                    disabled={numQubitsError || numIterationsError || numSolutionsError}
+            <Button
+                variant="contained"
+                color="primary"
+                disabled={numQubitsError || numIterationsError || numSolutionsError}
+                onClick={getGroverInfo}
+                className={!disableAnimation?`Button`: `${flicker} ${withAnimation} Button`}
                 >
-                    Load Grover
+                    Run Grover
                 </Button>
             </div>
         </div>      
