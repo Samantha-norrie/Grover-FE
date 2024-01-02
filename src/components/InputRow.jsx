@@ -116,6 +116,7 @@ function InputRow() {
                 <CssBaseline />
                 <TextField
                     required
+                    className="Input-bar"
                     error={numQubitsError}
                     type="number"
                     label="Number of Qubits"
@@ -134,6 +135,7 @@ function InputRow() {
                 <div className="Vert-container">
                     <TextField
                         required
+                        className="Input-bar"
                         error={numIterationsError}
                         type="number"
                         label="Number of Iterations"
@@ -159,6 +161,7 @@ function InputRow() {
                     { groverLevel === 1?
                     <TextField
                         required
+                        className="Input-bar"
                         error={numSolutionsError}
                         type="number"
                         label="Number of Solutions"
@@ -173,7 +176,7 @@ function InputRow() {
                                 setNewNumSolutions(parseInt(e.target.value));
                         }}}
                     />:
-                    <MultipleSelectChip 
+                    <MultipleSelectChip
                         totalValues={[...Array(Math.pow(newNumQubits,2)).keys()]} 
                         level={groverLevel}
                         solutionValue={solutionValue}

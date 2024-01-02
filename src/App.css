@@ -18,6 +18,10 @@ html, body, #app, #app>div, #root {
   color: white;
 }
 
+.Input-bar {
+  width: 15rem;
+}
+
 .App-link {
   color: #61dafb;
 }
