@@ -13,7 +13,6 @@ export const numQubitSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const {updateNumQubits} = numQubitSlice.actions;
 
 export default numQubitSlice.reducer;

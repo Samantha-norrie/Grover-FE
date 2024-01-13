@@ -10,8 +10,7 @@ import InstructionsModal from "./InstructionsModal";
 function PageContainer() {
     const [open, setOpen] = React.useState(true);
     const handleOpen = () => setOpen(true);
-    const handleClose = (e) => {
-      // e.preventDefault();
+    const handleClose = () => {
       setOpen(false);
     }
 

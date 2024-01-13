@@ -70,7 +70,7 @@ Fade.propTypes = {
 function InstructionsModal(props) {
     const [instructionStep, setInstructionStep] = useState(1);
 
-    const {handleOpen, handleClose, open} = props;
+    const {handleClose, open} = props;
 
     return(
         <Modal
